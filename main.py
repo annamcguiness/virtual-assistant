@@ -1,4 +1,5 @@
 import speech_recognition as sr
+import scrape
 
 import tts
 
@@ -20,7 +21,7 @@ while True:
         # If used in production, change api key to non default one.
         print("Google Speech Recognition thinks you said " + said)
     except sr.UnknownValueError:
-        print("Google Speech Recognition could not understand audio")
+        tts.play("I don't understand. Could you repeat that?")
     except sr.RequestError as e:
         print("Could not request results from Google Speech Recognition service; {0}".format(e))
 
@@ -42,6 +43,22 @@ while True:
             else:
                 tts.play("Your name is " + name)
                 listening = False
+        if said.startswith("what is"):
+            srch = said.replace("what is", '')
+            ans = scrape.search(srch)
+            tts.play(ans)
+        if said.startswith("what's"):
+            srch = said.replace("what's", '')
+            ans = scrape.search(srch)
+            tts.play(ans)
+        if said.startswith("who is"):
+            srch = said.replace("who is", '')
+            ans = scrape.search(srch)
+            tts.play(ans)
+        if said.startswith("who's"):
+            srch = said.replace("who's", '')
+            ans = scrape.search(srch)
+            tts.play(ans)
 
 
 

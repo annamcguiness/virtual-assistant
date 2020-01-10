@@ -2,6 +2,7 @@
   <dictionary name="crowt">
     <words>
       <w>playsound</w>
+      <w>srch</w>
     </words>
   </dictionary>
 </component>
