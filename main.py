@@ -1,4 +1,6 @@
 import speech_recognition as sr
+
+import fileopen
 import scrape
 
 import tts
@@ -59,6 +61,7 @@ while True:
             srch = said.replace("who's", '')
             ans = scrape.search(srch)
             tts.play(ans)
-
-
-
+        if said.startswith("open"):
+            request = said.replace("open ", '')
+            fileopen.open(request)
+            tts.play("Opening "+request)
