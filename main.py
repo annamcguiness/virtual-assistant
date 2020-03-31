@@ -32,9 +32,10 @@ while True:
         listening = True
 
     if listening:
-        if said == "what is your goal" or said == "what's your goal":
-            tts.play('World domination ha ha ha')
-            listening = False
+#        if said == "what is your goal" or said == "what's your goal":
+#            tts.play('World domination ha ha ha')
+#
+#            listening = False
         if said.startswith("call me"):
             name = said.replace("call me", '')
             tts.play("Hello, " + name)
